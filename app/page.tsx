@@ -1,131 +1,136 @@
 const integrations = [
-  {
-    name: "ChatGPT",
-    type: "Guide + template",
-    target: "Custom instructions / memory",
-    description:
-      "Drop the key sections of your profile into Custom instructions or Memories so every conversation starts already knowing you.",
-    action: "Paste into Custom instructions →",
-  },
-  {
-    name: "Claude",
-    type: "Guide + template",
-    target: "Project knowledge / CLAUDE.md",
-    description:
-      "Keep your context in CLAUDE.md or Project knowledge so Claude carries your working style into every project and chat.",
-    action: "Add to Project knowledge →",
-  },
-  {
-    name: "Gemini",
-    type: "Guide + template",
-    target: "System instructions",
-    description:
-      "Use your profile as Gemini's system instructions — a stable base of context that travels with each conversation.",
-    action: "Set as system instructions →",
-  },
-  {
-    name: "Cursor",
-    type: "Guide + template",
-    target: "Rules / AGENTS.md",
-    description:
-      "Start from your profile when writing AGENTS.md or .cursor/rules so the editor's agents code the way you think.",
-    action: "Add to .cursor or AGENTS.md →",
-  },
-  {
-    name: "Your stack",
-    type: "Guide",
-    target: "Drop-in Markdown",
-    description:
-      "Because your profile is plain Markdown, you can paste or point most agents at it directly — whatever comes next in your stack.",
-    action: "Any tool that reads Markdown →",
-  },
+  ["ChatGPT", "Custom instructions / memory", "Drop your profile into the context ChatGPT already uses."],
+  ["Claude", "Project knowledge / CLAUDE.md", "Keep your working style available across projects."],
+  ["Gemini", "System instructions", "Give each conversation the same stable base context."],
+  ["Cursor", "Rules / AGENTS.md", "Let coding agents start from how you think and work."],
+  ["Microsoft 365", "Copilot context", "Carry your profile into the tools you already use."],
+  ["Notion", "Markdown", "Keep a portable version of your profile wherever you work."],
 ];
 
-const problems = [
-  ["01", "Write it once, repeat it anyway", "You type the same intro, goals, and preferences into every new agent — then again each time you start fresh."],
-  ["02", "Profiles drift out of date", "The copies live in different tools, so when you change how you work, half of them are already stale."],
-  ["03", "Context gets trapped per tool", "Memory and project features keep your context locked inside one product, where it can't follow you anywhere else."],
+const benefits = [
+  ["01", "Unified Context", "One ALVIRA profile feeds every tool with the right context, every time."],
+  ["02", "You’re in Control", "You decide what’s shared, where it goes, and how it’s used."],
+  ["03", "Works Instantly", "Connect once. Your context flows wherever you work."],
 ];
 
 const steps = [
-  ["01", "Write it once", "Your ALVIRA profile captures who you are and how you work. It stays in one place — the single source of truth."],
-  ["02", "Push it everywhere", "Copy the relevant sections into each agent's native context — custom instructions, project knowledge, rules, or plain Markdown."],
-  ["03", "Keep it current", "Update the profile once, not in every tool. No more re-explaining yourself when you change how you work."],
-  ["04", "Stays honest", "Integrations are guides to what each tool natively supports today — clear about limits, never overstating what the third party offers."],
+  ["01", "Connect ALVIRA", "Link your ALVIRA Context Engine to Bridge."],
+  ["02", "Choose Your Tools", "Select the AI tools and apps you actually use."],
+  ["03", "Bridge Syncs Context", "Carry the right context into each destination."],
+  ["04", "Work Seamlessly", "Your context is there — so you can stay in flow."],
 ];
+
+function NetworkGraphic() {
+  return (
+    <div className="network" aria-hidden="true">
+      <div className="orbit orbit-one" />
+      <div className="orbit orbit-two" />
+      <div className="network-line line-a" />
+      <div className="network-line line-b" />
+      <div className="network-line line-c" />
+      <div className="network-line line-d" />
+      <div className="network-line line-e" />
+      <div className="node node-chat">◉</div>
+      <div className="node node-claude">✦</div>
+      <div className="node node-notion">N</div>
+      <div className="node node-slack">✣</div>
+      <div className="node node-teams">T</div>
+      <div className="core"><span>Λ</span></div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
     <main>
       <nav className="nav container">
-        <a href="https://alviratech.vercel.app/" className="brand">ALVIRA →</a>
+        <a href="https://alviratech.vercel.app/" className="brand"><span>ALVIRA</span><small>BRIDGE</small></a>
+        <div className="nav-links">
+          <a href="#integrations">Integrations</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#why-bridge">Why Bridge</a>
+          <a href="#security">Security</a>
+        </div>
+        <a className="nav-cta" href="https://alviratech.vercel.app/">Connect Your Tools</a>
       </nav>
 
-      <section className="hero container">
-        <p className="eyebrow">&lt;alvira-bridge /&gt;</p>
-        <h1>Take your ALVIRA profile everywhere.</h1>
-        <p className="lede">
-          Your AI profile shouldn&apos;t live in one tool. Use your ALVIRA context across ChatGPT, Claude, Gemini, Cursor, and whatever comes next.
-        </p>
-        <div className="actions">
-          <a className="button primary" href="#integrations">Browse the integrations</a>
-          <a className="button" href="https://alviratech.vercel.app/">Build your profile at ALVIRA</a>
+      <section className="hero-shell">
+        <div className="container hero">
+          <div className="hero-copy">
+            <p className="eyebrow">&lt;alvira-bridge /&gt;</p>
+            <h1>One profile.<br /><em>Every AI tool.</em></h1>
+            <p className="lede">ALVIRA Bridge connects your ALVIRA Context Engine to the AI tools you already use — so your context goes with you, everywhere.</p>
+            <div className="actions">
+              <a className="button primary" href="https://alviratech.vercel.app/">Connect Your Tools</a>
+              <a className="text-link" href="#integrations">Explore Integrations <span>→</span></a>
+            </div>
+          </div>
+          <NetworkGraphic />
         </div>
       </section>
 
-      <section className="section container">
-        <p className="eyebrow">The problem</p>
-        <h2>You don&apos;t have a context problem. You have a distribution problem.</h2>
-        <p className="section-lede">The hard part isn&apos;t capturing who you are — it&apos;s getting that captured context to actually reach every agent, and stay current once it&apos;s there.</p>
-        <div className="grid three">
-          {problems.map(([num, title, description]) => (
-            <article className="card" key={num}><span className="number">{num}</span><h3>{title}</h3><p>{description}</p></article>
+      <section className="tool-strip container" id="integrations">
+        <p className="strip-label">WORKS WHERE YOU WORK</p>
+        <div className="tool-list">
+          {integrations.slice(0, 6).map(([name]) => <span key={name}>{name}</span>)}
+          <span className="more">More coming soon</span>
+        </div>
+      </section>
+
+      <section className="section container" id="why-bridge">
+        <div className="why-grid">
+          <div>
+            <p className="eyebrow">&lt;why-bridge /&gt;</p>
+            <h2>Your context.<br /><em>No matter the tool.</em></h2>
+            <p className="section-lede">AI tools are powerful, but they don&apos;t remember what the others know. Bridge makes sure they do.</p>
+          </div>
+          <div className="benefit-grid">
+            {benefits.map(([num, title, description]) => (
+              <article className="benefit" key={num}>
+                <span className="icon-circle">{num}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section how-section container" id="how-it-works">
+        <p className="eyebrow center">&lt;how-it-works /&gt;</p>
+        <h2 className="center-heading">Simple connection. <em>Smarter results.</em></h2>
+        <div className="steps">
+          {steps.map(([num, title, description], index) => (
+            <div className="step" key={num}>
+              <div className="step-number">{num}</div>
+              <div className="step-icon">{index === 0 ? "＋" : index === 1 ? "⌘" : index === 2 ? "↻" : "✓"}</div>
+              <h3>{title}</h3>
+              <p>{description}</p>
+              {index < steps.length - 1 && <span className="step-arrow">→</span>}
+            </div>
           ))}
         </div>
       </section>
 
-      <section id="integrations" className="section container">
-        <p className="eyebrow">Integrations directory</p>
-        <h2>Get your profile into every agent you use.</h2>
-        <p className="section-lede">A focused catalog of honest, copy-paste-ready options for the agents you already have. Each is a guide, not a promise — features change, so treat these as a starting point.</p>
-        <div className="grid two">
-          {integrations.map((integration) => (
-            <article className="integration" key={integration.name}>
-              <div className="integration-head"><h3>{integration.name}</h3><span>{integration.type}</span></div>
-              <strong>{integration.target}</strong>
-              <p>{integration.description}</p>
-              <a href="#">{integration.action}</a>
-            </article>
-          ))}
+      <section className="bridge-cta container" id="security">
+        <div>
+          <p className="eyebrow">&lt;bridge-your-context /&gt;</p>
+          <h2>Bring your context <em>everywhere.</em></h2>
+          <p>Stop repeating yourself. Start working in flow.<br />Connect ALVIRA Bridge today.</p>
+        </div>
+        <div className="cta-actions">
+          <a className="button light" href="https://alviratech.vercel.app/">Connect Your Tools</a>
+          <a className="light-link" href="#integrations">Learn more about Bridge →</a>
         </div>
       </section>
 
-      <section className="section container split">
-        <div><p className="eyebrow">Why this works</p><h2>One source, copied once.</h2></div>
-        <div><p>Your ALVIRA profile is structured Markdown — the same format most agents already read. That&apos;s what makes these integrations short to set up and easy to keep in sync.</p><p className="muted">Integration guides are general options for each tool&apos;s native features and are not verified against every release.</p></div>
-      </section>
-
-      <section className="section container">
-        <p className="eyebrow">How it works</p>
-        <h2>Your profile flows outward.</h2>
-        <p className="section-lede">You keep one shared base profile in ALVIRA. Bridge is the set of simple integrations that push that same context into each agent — so they all start from the same place.</p>
-        <div className="grid two">
-          {steps.map(([num, title, description]) => (
-            <article className="card" key={num}><span className="number">{num}</span><h3>{title}</h3><p>{description}</p></article>
-          ))}
+      <footer className="footer">
+        <div className="container footer-inner">
+          <div className="footer-brand"><span>ALVIRA</span><small>BRIDGE</small><p>Bridge is the context distribution<br />layer of the ALVIRA ecosystem.</p></div>
+          <div className="footer-links"><div><b>PRODUCT</b><a href="#integrations">Integrations</a><a href="#how-it-works">How It Works</a><a href="#why-bridge">Why It Works</a><a href="#security">Security</a></div><div><b>COMPANY</b><a href="https://alviratech.vercel.app/">About ALVIRA</a><a href="https://alviratech.vercel.app/">Blog</a><a href="https://alviratech.vercel.app/">Contact</a></div><div><b>LEGAL</b><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#security">Security</a></div></div>
+          <div className="ecosystem"><b>BUILT BY ALVIRA</b><p>Context Engine. Data Layer.<br />Workflow Studio. Bridge.</p><strong>One ecosystem. Endless flow.</strong></div>
         </div>
-      </section>
-
-      <section className="cta container">
-        <p className="eyebrow">Get connected</p>
-        <h2>Start with one shared profile. Use it everywhere.</h2>
-        <p>Capture your profile once at ALVIRA, then use Bridge&apos;s integrations to carry it into every agent you reach for.</p>
-        <a className="button primary" href="https://alviratech.vercel.app/">Build your profile at ALVIRA →</a>
-      </section>
-
-      <footer className="footer container">
-        <span>© 2026 ALVIRA Bridge · part of the ALVIRA family</span>
-        <a href="https://alviratech.vercel.app/">Back to ALVIRA →</a>
+        <div className="container footer-bottom"><span>© 2026 ALVIRA Technologies, Inc.</span><span>&lt;alvira-bridge /&gt;</span></div>
       </footer>
     </main>
   );
