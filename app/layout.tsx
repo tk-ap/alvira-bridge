@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ALVIRA Bridge — Get your AI profile into every agent",
+  title: "ALVIRA Bridge — One profile. Every AI tool.",
   description:
-    "Carry your ALVIRA profile into ChatGPT, Claude, Gemini, Cursor, and the AI tools you use.",
+    "Take your ALVIRA profile everywhere. Carry your context into the AI tools you already use.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
