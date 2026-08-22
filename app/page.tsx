@@ -44,7 +44,10 @@ export default function Home() {
   return (
     <main>
       <nav className="nav container">
-        <a href="https://alviratech.vercel.app/" className="brand"><span>ALVIRA</span><small>BRIDGE</small></a>
+        <a href="https://alviratech.vercel.app/" className="brand" aria-label="ALVIRA home">
+          <img src="/brand/alvira-primary-wordmark-dark.svg" alt="ALVIRA" />
+          <small>BRIDGE</small>
+        </a>
         <div className="nav-links">
           <a href="#integrations">Integrations</a>
           <a href="#how-it-works">How It Works</a>
@@ -58,8 +61,8 @@ export default function Home() {
         <div className="container hero">
           <div className="hero-copy">
             <p className="eyebrow">&lt;alvira-bridge /&gt;</p>
-            <h1>One profile.<br /><em>Every AI tool.</em></h1>
-            <p className="lede">ALVIRA Bridge connects your ALVIRA Context Engine to the AI tools you already use — so your context goes with you, everywhere.</p>
+            <h1>Take your ALVIRA profile <em>everywhere.</em></h1>
+            <p className="lede">Your AI profile shouldn&apos;t live in one tool. Bridge carries the context ALVIRA builds into the AI tools you already use — and whatever comes next.</p>
             <div className="actions">
               <a className="button primary" href="https://alviratech.vercel.app/">Connect Your Tools</a>
               <a className="text-link" href="#integrations">Explore Integrations <span>→</span></a>
@@ -126,7 +129,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="container footer-inner">
-          <div className="footer-brand"><span>ALVIRA</span><small>BRIDGE</small><p>Bridge is the context distribution<br />layer of the ALVIRA ecosystem.</p></div>
+          <div className="footer-brand"><img src="/brand/alvira-primary-wordmark-dark.svg" alt="ALVIRA" /><small>BRIDGE</small><p>Bridge is the context distribution<br />layer of the ALVIRA ecosystem.</p></div>
           <div className="footer-links"><div><b>PRODUCT</b><a href="#integrations">Integrations</a><a href="#how-it-works">How It Works</a><a href="#why-bridge">Why It Works</a><a href="#security">Security</a></div><div><b>COMPANY</b><a href="https://alviratech.vercel.app/">About ALVIRA</a><a href="https://alviratech.vercel.app/">Blog</a><a href="https://alviratech.vercel.app/">Contact</a></div><div><b>LEGAL</b><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#security">Security</a></div></div>
           <div className="ecosystem"><b>BUILT BY ALVIRA</b><p>Context Engine. Data Layer.<br />Workflow Studio. Bridge.</p><strong>One ecosystem. Endless flow.</strong></div>
         </div>
