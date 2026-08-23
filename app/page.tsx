@@ -40,13 +40,21 @@ function NetworkGraphic() {
   );
 }
 
+function BrandLockup() {
+  return (
+    <span className="brand-lockup">
+      <img src="/brand/alvira-primary-wordmark-dark.svg" alt="ALVIRA" />
+      <span className="bridge-name">Bridge</span>
+    </span>
+  );
+}
+
 export default function Home() {
   return (
     <main>
       <nav className="nav container">
-        <a href="https://alviratech.vercel.app/" className="brand" aria-label="ALVIRA home">
-          <img src="/brand/alvira-primary-wordmark-dark.svg" alt="ALVIRA" />
-          <small>BRIDGE</small>
+        <a href="https://alviratech.vercel.app/" className="brand" aria-label="ALVIRA Bridge home">
+          <BrandLockup />
         </a>
         <div className="nav-links">
           <a href="#integrations">Integrations</a>
@@ -129,7 +137,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="container footer-inner">
-          <div className="footer-brand"><img src="/brand/alvira-primary-wordmark-dark.svg" alt="ALVIRA" /><small>BRIDGE</small><p>Bridge is the context distribution<br />layer of the ALVIRA ecosystem.</p></div>
+          <div className="footer-brand"><BrandLockup /><p>Bridge is the context distribution<br />layer of the ALVIRA ecosystem.</p></div>
           <div className="footer-links"><div><b>PRODUCT</b><a href="#integrations">Integrations</a><a href="#how-it-works">How It Works</a><a href="#why-bridge">Why It Works</a><a href="#security">Security</a></div><div><b>COMPANY</b><a href="https://alviratech.vercel.app/">About ALVIRA</a><a href="https://alviratech.vercel.app/">Blog</a><a href="https://alviratech.vercel.app/">Contact</a></div><div><b>LEGAL</b><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#security">Security</a></div></div>
           <div className="ecosystem"><b>BUILT BY ALVIRA</b><p>Context Engine. Data Layer.<br />Workflow Studio. Bridge.</p><strong>One ecosystem. Endless flow.</strong></div>
         </div>
