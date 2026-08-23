@@ -1,13 +1,13 @@
 import { BridgeConnection } from "./components/BridgeConnection";
 
 const integrations = [
-  ["ChatGPT", "Direct context connection", "Bridge is the distribution layer for your ALVIRA Profile."],
-  ["Claude", "Direct context connection", "Keep your working style available across projects."],
-  ["Gemini", "Direct context connection", "Give each conversation the same stable base context."],
-  ["Cursor", "Rules / AGENTS.md", "Let coding agents start from how you think and work."],
-  ["Microsoft 365", "Copilot context", "Carry your profile into the tools you already use."],
-  ["Notion", "Portable context", "Keep a portable version of your profile wherever you work."],
-];
+  ["ChatGPT", "Direct context connection", "Bridge is the distribution layer for your ALVIRA Profile.", "openai"],
+  ["Claude", "Direct context connection", "Keep your working style available across projects.", "anthropic"],
+  ["Gemini", "Direct context connection", "Give each conversation the same stable base context.", "googlegemini"],
+  ["Cursor", "Rules / AGENTS.md", "Let coding agents start from how you think and work.", "cursor"],
+  ["Microsoft 365", "Copilot context", "Carry your profile into the tools you already use.", "microsoft"],
+  ["Notion", "Portable context", "Keep a portable version of your profile wherever you work.", "notion"],
+] as const;
 
 const benefits = [
   ["01", "Unified Context", "One ALVIRA profile is the source. Bridge distributes it without rebuilding the Context Engine."],
@@ -22,13 +22,40 @@ const steps = [
   ["04", "Work Seamlessly", "Your AI tools can use the same underlying context without retraining it from scratch."],
 ];
 
-function NetworkGraphic() {
+function BrandIcon({ slug, label }: { slug: string; label: string }) {
   return (
-    <div className="network" aria-hidden="true">
+    <img
+      className="brand-icon"
+      src={`https://cdn.simpleicons.org/${slug}`}
+      alt=""
+      aria-hidden="true"
+      title={label}
+    />
+  );
+}
+
+function NetworkGraphic() {
+  const nodes = [
+    ["node-chat", integrations[0]],
+    ["node-claude", integrations[1]],
+    ["node-gemini", integrations[2]],
+    ["node-cursor", integrations[3]],
+    ["node-microsoft", integrations[4]],
+    ["node-notion", integrations[5]],
+  ] as const;
+
+  return (
+    <div className="network" aria-label="ALVIRA connected to ChatGPT, Claude, Gemini, Cursor, Microsoft 365, and Notion">
       <div className="orbit orbit-one" /><div className="orbit orbit-two" />
-      <div className="network-line line-a" /><div className="network-line line-b" /><div className="network-line line-c" /><div className="network-line line-d" /><div className="network-line line-e" />
-      <div className="node node-chat">◉</div><div className="node node-claude">✦</div><div className="node node-notion">N</div><div className="node node-slack">✣</div><div className="node node-teams">T</div>
-      <div className="core"><span>Λ</span></div>
+      <div className="network-line line-a" /><div className="network-line line-b" /><div className="network-line line-c" /><div className="network-line line-d" /><div className="network-line line-e" /><div className="network-line line-f" />
+      {nodes.map(([className, integration]) => (
+        <div className={`node ${className}`} key={integration[0]}>
+          <BrandIcon slug={integration[3]} label={integration[0]} />
+        </div>
+      ))}
+      <div className="core">
+        <img src="/brand/alvira-compact-mark.svg" alt="ALVIRA" />
+      </div>
     </div>
   );
 }
@@ -60,7 +87,12 @@ export default function Home() {
 
       <section className="tool-strip container" id="integrations">
         <p className="strip-label">CONTEXT DESTINATIONS</p>
-        <div className="tool-list">{integrations.map(([name]) => <span key={name}>{name}</span>)}<span className="more">More integrations coming after the core Bridge API</span></div>
+        <div className="tool-list">
+          {integrations.map(([name, , , slug]) => (
+            <span className="tool-item" key={name}><BrandIcon slug={slug} label={name} /><span>{name}</span></span>
+          ))}
+          <span className="more">More integrations coming after the core Bridge API</span>
+        </div>
       </section>
 
       <section className="section container" id="why-bridge">
