@@ -1,6 +1,6 @@
 {
   "name": "alvira-bridge",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@modelcontextprotocol/server": "latest",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "zod": "^4.2.0"
   },
   "devDependencies": {
     "@types/node": "latest",
