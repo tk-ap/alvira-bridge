@@ -5,7 +5,7 @@ const integrations = [
   ["Claude", "Direct context connection", "Keep your working style available across projects.", "anthropic"],
   ["Gemini", "Direct context connection", "Give each conversation the same stable base context.", "googlegemini"],
   ["Cursor", "Rules / AGENTS.md", "Let coding agents start from how you think and work.", "cursor"],
-  ["Microsoft 365", "Copilot context", "Carry your profile into the tools you already use.", "microsoft"],
+  ["Microsoft 365", "Copilot context", "Carry your profile into the tools you already use.", "microsoft365"],
   ["Notion", "Portable context", "Keep a portable version of your profile wherever you work.", "notion"],
 ] as const;
 
@@ -26,7 +26,7 @@ function BrandIcon({ slug, label }: { slug: string; label: string }) {
   return (
     <img
       className="brand-icon"
-      src={`https://cdnjs.cloudflare.com/ajax/libs/simple-icons/15.16.0/${slug}.svg`}
+      src={`https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/${slug}.svg`}
       alt=""
       aria-hidden="true"
       title={label}
@@ -54,7 +54,7 @@ function NetworkGraphic() {
         </div>
       ))}
       <div className="core">
-        <span className="core-avatar"><img src="/brand/alvira-compact-mark.svg" alt="ALVIRA" /></span>
+        <img src="/brand/alvira-compact-node.svg" alt="ALVIRA" />
       </div>
     </div>
   );
