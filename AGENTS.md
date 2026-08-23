@@ -7,7 +7,7 @@ ALVIRA Bridge is a sister product/site to the main ALVIRA product. It should fee
 ### Product Architecture
 
 - **ALVIRA = Context Engine** — helps people discover, structure, maintain, and build the context their AI is missing.
-- **ALVIRA Bridge = Context Distribution** — carries the user's ALVIRA context into the AI tools they use.
+- **ALVIRA Bridge = Context Distribution** — carries the user's ALVIRA context into the AI tools they use, including direct integrations and MCP access.
 - Bridge fulfills the main ALVIRA promise: **“One profile. Every AI tool.”**
 
 The core product-family narrative is:
@@ -51,6 +51,8 @@ Prioritize:
 - structured
 - maintain
 - understand
+- direct integrations
+- MCP access
 
 Avoid unnecessary customer-facing terminology such as:
 
@@ -95,16 +97,16 @@ When practical, mirror the main ALVIRA communication rhythm:
 
 Bridge's information architecture can remain focused on integrations/distribution, but its positioning should remain unmistakably ALVIRA.
 
-## Cross-Site Alignment Rules
+## Cross-Site Linking Rules
 
-When making product, UX, copy, or visual decisions:
+ALVIRA and Bridge are clearly linked but separate products.
 
-1. Prefer established ALVIRA language over newly invented Bridge terminology.
-2. Treat typography and major design tokens as shared ALVIRA brand infrastructure.
-3. Make the relationship between **ALVIRA = build context** and **Bridge = take context everywhere** obvious without technical explanation.
-4. Do not make Bridge feel like a generic integrations marketplace.
-5. New terminology should be introduced only when it materially improves user understanding without fragmenting the ALVIRA vocabulary.
-6. If a Bridge-specific requirement conflicts with this family-level direction, document the reason explicitly and preserve the broader ALVIRA relationship.
+- Bridge's primary navigation/brand lockup must link back to the main ALVIRA product at `https://alviratech.vercel.app/`.
+- Bridge should provide a visible **ALVIRA** navigation/footer link back to the core product.
+- Any customer-facing mention of **direct integrations**, **MCP access**, connecting external AI tools, or distributing an ALVIRA profile should remain on Bridge or link to the Bridge product page.
+- CTAs that require a user to first build an ALVIRA profile should link to the main ALVIRA product.
+- Do not collapse Bridge into the main ALVIRA navigation architecture or describe it as merely a feature page.
+- Preserve the family distinction: **ALVIRA builds context; Bridge carries it everywhere.**
 
 ## Acceptance Criteria
 
@@ -114,6 +116,8 @@ A Bridge change is directionally aligned when:
 - The headline and supporting copy reinforce the ALVIRA context/AI-profile story.
 - Typography and major type treatments feel native to the main ALVIRA product.
 - The relationship between building context and taking context everywhere is clear.
+- Direct integrations and MCP access are clearly associated with Bridge rather than the core ALVIRA product.
+- Bridge provides an obvious path back to ALVIRA for profile creation and core product functionality.
 - Copy avoids generic integration-marketplace language unless technically necessary.
 - Bridge feels like the second half of ALVIRA's existing promise rather than a competing product.
 
