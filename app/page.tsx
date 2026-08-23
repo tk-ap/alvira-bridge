@@ -26,7 +26,7 @@ function BrandIcon({ slug, label }: { slug: string; label: string }) {
   return (
     <img
       className="brand-icon"
-      src={`https://cdn.simpleicons.org/${slug}`}
+      src={`https://cdnjs.cloudflare.com/ajax/libs/simple-icons/15.16.0/${slug}.svg`}
       alt=""
       aria-hidden="true"
       title={label}
@@ -54,7 +54,7 @@ function NetworkGraphic() {
         </div>
       ))}
       <div className="core">
-        <img src="/brand/alvira-compact-mark.svg" alt="ALVIRA" />
+        <span className="core-avatar"><img src="/brand/alvira-compact-mark.svg" alt="ALVIRA" /></span>
       </div>
     </div>
   );
