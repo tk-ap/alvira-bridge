@@ -58,8 +58,6 @@ export default function Home() {
         </div>
       </section>
 
-      <BridgeConnection />
-
       <section className="tool-strip container" id="integrations">
         <p className="strip-label">CONTEXT DESTINATIONS</p>
         <div className="tool-list">{integrations.map(([name]) => <span key={name}>{name}</span>)}<span className="more">More integrations coming after the core Bridge API</span></div>
