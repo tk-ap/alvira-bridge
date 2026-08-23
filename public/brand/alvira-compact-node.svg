@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 164" role="img" aria-labelledby="title">
+  <title id="title">ALVIRA compact node</title>
+  <rect x="1" y="1" width="162" height="162" rx="28" fill="#07101b" stroke="#2d9b8c" stroke-width="2"/>
+  <g transform="translate(44 42) scale(2.375)" fill="none" stroke="#45b8a8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 27 14 5h4l10 22M8 20h16" stroke-width="3.2"/>
+    <path d="M18 27 25 5M23 8l6 8-6 8" stroke-width="3.2"/>
+  </g>
+</svg>
