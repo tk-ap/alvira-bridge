@@ -1,0 +1,11 @@
+version: 0.1.0
+product: alvira-bridge
+category: context-interoperability
+ecosystem_source: tk-ap/agent-os
+ecosystem_contract: ecosystem/ECOSYSTEM.md
+product_directive: products/alvira-bridge.md
+owns: [context-distribution, context-consent, context-scoping, connected-access, context-revocation]
+produces: [context-envelope, context-access-event]
+consumes: [context-reference, context-version]
+must_not_own: [context-source-of-truth, portfolio-prioritization, workforce-routing, operational-authorization]
+

@@ -1,0 +1,21 @@
+version: 0.1.0
+product: alvira-bridge
+inbound:
+  - from: alvira
+    contract: context-reference
+    purpose: distribute-current-context
+outbound:
+  - to: agent-os
+    contract: contracts/context-envelope.schema.json
+    trigger: workforce-context-approved
+  - to: connected-ai-tool
+    contract: contracts/context-envelope.schema.json
+    trigger: client-context-request-approved
+cross_market:
+  - trigger: user-needs-to-create-or-improve-context
+    destination: alvira
+    message: Build or update the context your AI is missing.
+  - trigger: user-wants-a-coordinated-workforce-to-use-context
+    destination: agent-os
+    message: Give a coordinated workforce access to selected context.
+
