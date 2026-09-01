@@ -1,0 +1,40 @@
+version: 0.1.0
+product_key: alvira-bridge
+agent_os_repository: tk-ap/agent-os
+routing_source: registry/product-routing.yaml
+repository: tk-ap/alvira-bridge
+
+local:
+  owns:
+    - approved-context-delivery
+    - destination-adapters
+    - minimum-sufficient-context-selection
+    - delivery-provenance
+    - delivery-status-and-evidence
+  produces:
+    - context-delivery-result
+    - delivery-evidence
+  consumes:
+    - approved-context-envelope
+    - destination-and-purpose
+    - user-or-policy-approved-delivery-scope
+  must_not_own:
+    - canonical-context-truth
+    - context-authorship
+    - portfolio-prioritization
+    - canonical-workforce-routing
+    - generic-authorization-intelligence
+    - standalone-public-product-positioning
+  constraints:
+    - bridge-is-a-gated-secondary-capability-inside-alvira
+    - alvira-remains-the-context-source-of-truth
+    - bridge-must-not-create-a-second-profile-store
+    - delivery-should-be-minimum-relevant-approved-current-enough-and-provenance-preserving
+    - automatic-sync-and-broad-context-copying-are-not-defaults
+    - this-repository-may-remain-an-implementation-backend-or-migration-dependency-without-becoming-a-standalone-offering
+
+rules:
+  canonical_product_role_from_routing_source: true
+  local_metadata_may_narrow_or_add_implementation_detail: true
+  local_metadata_must_not_redefine_canonical_role: true
+  cross_product_writes_require_explicit_task_authorization: true
