@@ -1,0 +1,26 @@
+version: 0.1.0
+product_key: alvira-bridge
+agent_os_repository: tk-ap/agent-os
+routing_source: registry/product-routing.yaml
+
+inbound:
+  - from: alvira-meos
+    contract: contracts/context-envelope.schema.json
+    purpose: receive only approved context references and permitted use for a known delivery destination/purpose
+
+outbound:
+  - to: agent-os-workforce
+    contract: contracts/outcome-event.schema.json
+    trigger: a governed delivery attempt needs verifiable status or evidence returned to the execution loop
+  - to: alvira-meos
+    contract: contracts/outcome-event.schema.json
+    trigger: delivery status should be reflected back to the ALVIRA-owned user experience
+
+cross_market: []
+
+rules:
+  use_portable_contracts_for_cross_product_handoffs: true
+  cross_market_policy: policies/CROSS_MARKET_POLICY.md
+  integration_claims_require_verified_implementation: true
+  context_delivery_does_not_grant_execution_authority: true
+  context_delivery_does_not_change_context_source_of_truth: true

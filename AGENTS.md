@@ -1,126 +1,97 @@
 # Agent Instructions
 
-## ALVIRA Bridge Brand Direction
+## Current Owner-Ratified Product Architecture
 
-ALVIRA Bridge is a sister product/site to the main ALVIRA product. It should feel like an extension of ALVIRA, not a separate generic SaaS or integrations product.
+This section supersedes earlier repository language that described ALVIRA Bridge as a separate sister product/site.
 
-### Product Architecture
+- **ALVIRA / MeOS = Context Intelligence.** ALVIRA builds, structures, reflects, and maintains the living context AI should understand about the user.
+- **ALVIRA Bridge = controlled context delivery.** Bridge is a gated secondary capability inside ALVIRA that carries selected, approved ALVIRA context into external AI tools.
+- Canonical customer product: `https://alviratech.vercel.app/`.
+- Canonical customer Bridge experience: `/bridge` inside the main ALVIRA application.
+- This separate repository may remain useful as an implementation backend, adapter workspace, or migration dependency, but it must not create a standalone customer product, independent profile store, or competing account/navigation architecture.
 
-- **ALVIRA = Context Engine** — helps people discover, structure, maintain, and build the context their AI is missing.
-- **ALVIRA Bridge = Context Distribution** — carries the user's ALVIRA context into the AI tools they use, including direct integrations and MCP access.
-- Bridge fulfills the main ALVIRA promise: **“One profile. Every AI tool.”**
+The durable relationship is:
 
-The core product-family narrative is:
+**ALVIRA builds and reflects living context → Bridge carries approved context to a known destination/purpose.**
 
-**ALVIRA**
-> **Build the context your AI is missing.**
+## Context-Delivery Boundary
 
-Discover → structure → maintain personal AI context.
+Bridge should deliver the minimum context that is:
 
-**ALVIRA Bridge**
-> **Take that context everywhere.**
+- approved for the destination and purpose;
+- relevant to the task;
+- current enough for the intended use;
+- provenance-preserving;
+- scoped so unrelated personal/product context is not loaded by default.
 
-Connect → copy → deploy the ALVIRA profile across AI tools.
+Bridge must not:
 
-Use “Context Engine” and “Context Distribution” primarily as internal product architecture language. Customer-facing copy should remain human + technical rather than infrastructure-first.
+- become the canonical context store;
+- author or silently rewrite ALVIRA context;
+- sync everything everywhere by default;
+- treat prior successful delivery as standing permission for broader future delivery;
+- become the workforce router or execution runtime;
+- own generic authorization intelligence;
+- imply a live integration before the relevant adapter/delivery behavior is verified.
 
-## Voice and Copy
+## Brand, Voice, and Visual Direction
 
-Bridge should sound unmistakably like ALVIRA:
+Bridge should feel unmistakably like ALVIRA because it is an ALVIRA capability.
 
-- Concise, confident, intelligent, and technically credible.
-- Human-centered without being casual or overly conversational.
-- Explain the product through the user's relationship with their AI context, not through infrastructure.
-- Prefer short, declarative sentences.
-- Avoid marketing filler, exaggerated claims, and generic SaaS language.
-- Reuse established ALVIRA vocabulary before inventing new terminology.
+- Reuse ALVIRA identity, typography, navigation patterns, design tokens, profile source-of-truth, and permission language wherever technically possible.
+- Keep language concise, confident, intelligent, and technically credible.
+- Explain Bridge through the user's relationship with their AI context, not generic integration infrastructure.
+- Prefer ALVIRA vocabulary: context, AI profile, knowledge, approved context, portable, structured, direct integration, MCP access, destination, purpose.
+- Avoid generic integration-marketplace language, infrastructure-first marketing, or claims that create a second ALVIRA brand/product.
+- Technical terms are appropriate in implementation documentation, but customer-facing copy should remain human + technical rather than infrastructure-first.
 
-### Preferred Vocabulary
+A suitable promise remains conceptually:
 
-Prioritize:
+> Take your ALVIRA context everywhere.
 
-- context
-- AI profile
-- knowledge
-- build
-- missing context
-- take your context everywhere
-- one profile
-- every AI tool
-- portable
-- structured
-- maintain
-- understand
-- direct integrations
-- MCP access
+Any supporting language must preserve consent, scope, continuity, and provenance rather than imply unrestricted copying.
 
-Avoid unnecessary customer-facing terminology such as:
+## Customer-Surface Rules
 
-- integration layer
-- distribution problem
-- integration directory
-- integration infrastructure
-- stack
-- infrastructure-first language
+- Customer-facing Bridge navigation belongs inside the main ALVIRA experience.
+- CTAs requiring profile creation, account state, context compilation, or reflection should resolve through ALVIRA.
+- Direct integrations, MCP access, and external-tool delivery may be presented as Bridge capabilities inside ALVIRA.
+- Do not expose this repository/deployment as a competing standalone acquisition funnel unless the owner explicitly changes the architecture.
+- Bridge remains account-gated and subordinate to the core context experience according to ALVIRA product rules.
 
-Technical terms are appropriate when describing implementation, but Bridge should not read like a generic developer marketplace.
+## Agent OS Control-Plane Integration
 
-### Hero Direction
+This repository participates in `tk-ap/agent-os` as the canonical shared workforce/control-plane layer.
 
-A strong Bridge positioning direction is:
+Before material planning or implementation:
 
-> **Take your ALVIRA profile everywhere.**
->
-> Your AI profile shouldn't live in one tool. Use your ALVIRA context across ChatGPT, Claude, Gemini, Cursor, and whatever comes next.
+1. Read Agent OS `BOOTSTRAP.md` and `registry/product-routing.yaml`.
+2. Read this repository's `.agent-os/product.yaml` and `.agent-os/integration-surface.yaml`.
+3. Treat the `alvira-bridge` product key as a secondary ALVIRA capability boundary, not an independent public product category.
+4. Use `contracts/context-envelope.schema.json` when approved ALVIRA context crosses into a delivery workflow.
+5. Use `contracts/outcome-event.schema.json` to return delivery/verification evidence when useful.
+6. Route portfolio prioritization to ailhat and shared workforce composition/execution to Agent OS.
+7. Generic authorization intelligence remains outside Bridge; LEDGATo is involved only when governance/enforcement is materially relevant.
+8. Preserve merge, production, secrets, destructive-action, and other human/policy gates.
 
-Supporting language may evolve, but should consistently communicate **portability, continuity, and context**.
+The conceptual execution chain is:
 
-## Typography and Visual Identity
+`ALVIRA-approved context → context envelope → Bridge delivery task → authorized harness/host or adapter → destination → verification/evidence`
 
-Bridge should inherit the main ALVIRA visual system wherever technically possible.
-
-- Use the same primary font family as ALVIRA.
-- Do not introduce a separate font identity without explicit approval.
-- Align heading/body fonts, weights, letter spacing, line heights, button typography, and technical/monospace treatments.
-- Reuse ALVIRA design tokens before creating Bridge-specific values.
-- Preserve ALVIRA's small monospace/code-style product-label treatment as part of the shared identity.
-- A label such as `<alvira-bridge />` is an appropriate expression of this pattern when useful, but it is not required on every page.
-
-## Copy Hierarchy
-
-When practical, mirror the main ALVIRA communication rhythm:
-
-1. Small technical/product label.
-2. Large, concise headline communicating the core promise.
-3. Short explanatory paragraph.
-4. Clear primary and secondary actions.
-
-Bridge's information architecture can remain focused on integrations/distribution, but its positioning should remain unmistakably ALVIRA.
-
-## Cross-Site Linking Rules
-
-ALVIRA and Bridge are clearly linked but separate products.
-
-- Bridge's primary navigation/brand lockup must link back to the main ALVIRA product at `https://alviratech.vercel.app/`.
-- Bridge should provide a visible **ALVIRA** navigation/footer link back to the core product.
-- Any customer-facing mention of **direct integrations**, **MCP access**, connecting external AI tools, or distributing an ALVIRA profile should remain on Bridge or link to the Bridge product page.
-- CTAs that require a user to first build an ALVIRA profile should link to the main ALVIRA product.
-- Do not collapse Bridge into the main ALVIRA navigation architecture or describe it as merely a feature page.
-- Preserve the family distinction: **ALVIRA builds context; Bridge carries it everywhere.**
+A scheduler, integration credential, or reachable destination never expands the approved context scope.
 
 ## Acceptance Criteria
 
-A Bridge change is directionally aligned when:
+A Bridge change is aligned when:
 
-- A user can immediately understand that Bridge belongs to ALVIRA.
-- The headline and supporting copy reinforce the ALVIRA context/AI-profile story.
-- Typography and major type treatments feel native to the main ALVIRA product.
-- The relationship between building context and taking context everywhere is clear.
-- Direct integrations and MCP access are clearly associated with Bridge rather than the core ALVIRA product.
-- Bridge provides an obvious path back to ALVIRA for profile creation and core product functionality.
-- Copy avoids generic integration-marketplace language unless technically necessary.
-- Bridge feels like the second half of ALVIRA's existing promise rather than a competing product.
+- it preserves ALVIRA as the context source of truth;
+- the customer experience reads as part of ALVIRA rather than a separate SaaS;
+- only minimum relevant approved context is carried;
+- destination, purpose, scope, freshness, and provenance remain understandable;
+- implementation claims are distinguished from proposed/simulated/previewed/verified/deployed states;
+- another product's responsibilities are handed off rather than silently absorbed;
+- no secret values or reusable credentials are committed to the repository.
 
 ## Repository Context
 
-The Bridge implementation is still being built. Treat this document as the source of truth for the intended product-family relationship while the site evolves. More detailed Bridge-specific requirements can be added here over time, but should preserve the ALVIRA brand architecture above.
+This repository can continue to evolve as a technical Bridge implementation/support surface. Product architecture and shared-workforce boundaries should remain consistent with the canonical ALVIRA instructions and `tk-ap/agent-os` routing source.
